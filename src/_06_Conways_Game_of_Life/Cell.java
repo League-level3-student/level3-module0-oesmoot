@@ -36,7 +36,22 @@ public class Cell implements Drawable{
      * (source: Wikipedia) 
      */
     public void liveOrDie(int numNeighbors) {
-
+    	if (isAlive == false) {
+    		if(numNeighbors == 3) {
+    			isAlive = true;
+    		}
+    	}
+    	else if(isAlive == true) {
+    		if(numNeighbors < 2) {
+    			isAlive = false;
+    		}
+    		else if(numNeighbors == 2|| numNeighbors == 3) {
+    			isAlive = true;
+    		}
+    		else if(numNeighbors > 3) {
+    			isAlive = false;
+    		}
+    	}
     }
 
     public int getX() {

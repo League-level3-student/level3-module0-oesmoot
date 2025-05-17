@@ -87,7 +87,8 @@ public class WorldPanel extends JPanel implements MouseListener, ActionListener 
         // 6. Iterate through the cells and draw them all
     	for(int i = 0; i<cellsPerRow; i++) {
     		for(int j=0; j<cellsPerRow; j++) {
-    			g.fillRect(cells[i][j].getX(), cells[i][j].getY(), cellSize, cellSize);
+    			//g.drawRect(cells[i][j].getX(), cells[i][j].getY(), cellSize, cellSize);
+    			cells[i][j].draw(g);
     		}
     	}
 
@@ -176,7 +177,7 @@ public class WorldPanel extends JPanel implements MouseListener, ActionListener 
         //    cellSize, meaning it's possible to click inside of a cell. You
         //    have to determine the cell that was clicked from the pixel
         //    location and toggle the 'isAlive' variable for that cell.
-    	
+    	cells[e.getX()/cellSize][e.getY()/cellSize].isAlive = !cells[e.getX()/cellSize][e.getY()/cellSize].isAlive;
         repaint();
     }
 
